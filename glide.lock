@@ -1,0 +1,20 @@
+hash: dbe400789c637472b10cac9ddeccb27876ea8fc3c294bc542ed7ac538821afff
+updated: 2016-04-01T16:52:09.338865-04:00
+imports:
+- name: github.com/pelletier/go-buffruneio
+  version: df1e16fde7fc330a0ca68167c23bf7ed6ac31d6d
+- name: github.com/pelletier/go-toml
+  version: d6a90e60edcdbd4e9abe88338d811d0cbb43d324
+- name: github.com/tdewolff/buffer
+  version: 43cef5ba7b6ce99cc410632dad46cf1c6c97026e
+- name: github.com/tdewolff/minify
+  version: bcdb7dc220ccc0d7c30bde0f32ce2ce47e49de98
+  subpackages:
+  - css
+- name: github.com/tdewolff/parse
+  version: 3c847ecc915d4611b5b799773b848e60a3fd4178
+  subpackages:
+  - css
+- name: github.com/tdewolff/strconv
+  version: 9b189f5be77f33c46776f24dbddb2a7ab32af214
+devImports: []

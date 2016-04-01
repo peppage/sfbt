@@ -1,0 +1,6 @@
+package: sfbt
+import:
+- package: github.com/tdewolff/minify
+- package: github.com/pelletier/go-toml
+- package: github.com/tdewolff/buffer
+- package: github.com/tdewolff/parse
