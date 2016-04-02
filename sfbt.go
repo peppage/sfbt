@@ -25,17 +25,16 @@ func main() {
 
 	var cssFolder string
 
-	if config.Has("sfbt.cssFolder") {
-		cssFolder = config.Get("sfbt.cssFolder").(string)
-	} else {
+	if !config.Has("sfbt.cssFolder") {
 		log.Fatal("config missing css folder")
 	}
 
-	if config.Has("sfbt.targetCssFile") {
-		cssTargetFile = config.Get("sfbt.targetCssFile").(string)
-	} else {
+	if !config.Has("sfbt.targetCssFile") {
 		log.Fatal("config missing target css file")
 	}
+
+	cssFolder = config.Get("sfbt.cssFolder").(string)
+	cssTargetFile = config.Get("sfbt.targetCssFile").(string)
 
 	min := minify.New()
 	min.AddFunc("text/css", css.Minify)
