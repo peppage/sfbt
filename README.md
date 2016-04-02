@@ -12,7 +12,7 @@ Either
 go get github.com/peppage/sfbt
 ```
 
-or download executable and move into yuour $GOPATH/bin
+or download executable and move into your $GOPATH/bin
 
 ## Usage
 For most of my projects I use this example https://gist.github.com/Stratus3D/a5be23866810735d7413
