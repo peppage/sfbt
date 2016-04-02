@@ -19,7 +19,9 @@ var cssWriter io.WriteCloser
 
 func main() {
 	config, err := toml.LoadFile("conf.toml")
-	check(err)
+	if err != nil {
+		log.Fatal("Missing conf.toml")
+	}
 
 	var cssFolder string
 
@@ -39,7 +41,9 @@ func main() {
 	min.AddFunc("text/css", css.Minify)
 
 	cssFile, err := os.Create(cssTargetFile)
-	check(err)
+	if err != nil {
+		log.Fatal("Failed to create target css file")
+	}
 
 	cssWriter = min.Writer("text/css", cssFile)
 
