@@ -1,3 +1,3 @@
 [sfbt]
-folder = "css"
-targetFile = "site.css"
+cssFolder = "css"
+targetCssFile = "site.css"

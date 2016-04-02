@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -13,25 +14,31 @@ import (
 	"github.com/tdewolff/minify"
 )
 
-var cssFolder string
 var cssTargetFile string
-var cssFile *os.File
 var cssWriter io.WriteCloser
 
 func main() {
 	config, err := toml.LoadFile("conf.toml")
 	check(err)
-	if config.Has("sfbt.folder") {
-		cssFolder = config.Get("sfbt.folder").(string)
+
+	var cssFolder string
+
+	if config.Has("sfbt.cssFolder") {
+		cssFolder = config.Get("sfbt.cssFolder").(string)
+	} else {
+		log.Fatal("config missing css folder")
 	}
-	if config.Has("sfbt.targetFile") {
-		cssTargetFile = config.Get("sfbt.targetFile").(string)
+
+	if config.Has("sfbt.targetCssFile") {
+		cssTargetFile = config.Get("sfbt.targetCssFile").(string)
+	} else {
+		log.Fatal("config missing target css file")
 	}
 
 	min := minify.New()
 	min.AddFunc("text/css", css.Minify)
 
-	cssFile, err = os.Create(cssTargetFile)
+	cssFile, err := os.Create(cssTargetFile)
 	check(err)
 
 	cssWriter = min.Writer("text/css", cssFile)
